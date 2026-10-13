@@ -1,0 +1,10 @@
+C:\Users\vishn\ecommerce-api-framework\src\test\java\com\api\base\BaseTest.java
+C:\Users\vishn\ecommerce-api-framework\src\test\java\com\api\endpoints\AuthApi.java
+C:\Users\vishn\ecommerce-api-framework\src\test\java\com\api\endpoints\OrderApi.java
+C:\Users\vishn\ecommerce-api-framework\src\test\java\com\api\endpoints\ProductApi.java
+C:\Users\vishn\ecommerce-api-framework\src\test\java\com\api\models\LoginRequest.java
+C:\Users\vishn\ecommerce-api-framework\src\test\java\com\api\models\LoginResponse.java
+C:\Users\vishn\ecommerce-api-framework\src\test\java\com\api\models\Order.java
+C:\Users\vishn\ecommerce-api-framework\src\test\java\com\api\models\OrderDetail.java
+C:\Users\vishn\ecommerce-api-framework\src\test\java\com\api\tests\ECommerceTest.java
+C:\Users\vishn\ecommerce-api-framework\src\test\java\com\api\utils\ConfigReader.java
