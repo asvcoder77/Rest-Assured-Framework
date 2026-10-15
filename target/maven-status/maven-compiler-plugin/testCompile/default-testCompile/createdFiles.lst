@@ -1,0 +1,10 @@
+com\api\models\LoginResponse.class
+com\api\models\Order.class
+com\api\models\LoginRequest.class
+com\api\endpoints\OrderApi.class
+com\api\endpoints\ProductApi.class
+com\api\base\BaseTest.class
+com\api\tests\ECommerceTest.class
+com\api\endpoints\AuthApi.class
+com\api\utils\ConfigReader.class
+com\api\models\OrderDetail.class

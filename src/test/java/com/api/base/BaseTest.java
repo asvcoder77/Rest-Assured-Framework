@@ -2,6 +2,8 @@ package com.api.base;
 
 import com.api.utils.ConfigReader;
 
+import io.qameta.allure.restassured.AllureRestAssured;
+
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -16,6 +18,8 @@ public class BaseTest {
 	public void setUp() {
 		baseUrl = ConfigReader.get("base.url");
 		RestAssured.baseURI = baseUrl;
+		// Attach every request/response to the Allure report
+		RestAssured.replaceFiltersWith(new AllureRestAssured());
 	}
 
 	/** JSON request with the auth token header. */

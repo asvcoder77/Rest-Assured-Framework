@@ -17,9 +17,17 @@ import com.api.models.Order;
 import com.api.models.OrderDetail;
 import com.api.utils.ConfigReader;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
+@Epic("ECommerce API")
+@Feature("Order Flow")
 public class ECommerceTest extends BaseTest {
 
 	private String token;
@@ -27,6 +35,9 @@ public class ECommerceTest extends BaseTest {
 	private String productId;
 
 	@Test
+	@Story("Login")
+	@Severity(SeverityLevel.BLOCKER)
+	@Description("Login with valid credentials and capture token and userId")
 	public void login() {
 		LoginRequest request = new LoginRequest();
 		request.setUserEmail(ConfigReader.get("user.email"));
@@ -42,6 +53,9 @@ public class ECommerceTest extends BaseTest {
 	}
 
 	@Test(dependsOnMethods = "login")
+	@Story("Product")
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("Add a product with an image and capture productId")
 	public void addProduct() {
 		File image = new File(ConfigReader.get("product.image.path"));
 		Response response = ProductApi.addProduct(token, userId, image);
@@ -52,6 +66,9 @@ public class ECommerceTest extends BaseTest {
 	}
 
 	@Test(dependsOnMethods = "addProduct")
+	@Story("Order")
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("Create an order for the product added in the previous step")
 	public void createOrder() {
 		OrderDetail detail = new OrderDetail();
 		detail.setCountry("India");
@@ -69,6 +86,9 @@ public class ECommerceTest extends BaseTest {
 	}
 
 	@Test(dependsOnMethods = "createOrder")
+	@Story("Product")
+	@Severity(SeverityLevel.NORMAL)
+	@Description("Delete the product created earlier and verify the message")
 	public void deleteProduct() {
 		Response response = ProductApi.deleteProduct(token, productId);
 		Assert.assertEquals(response.statusCode(), 200);
